@@ -195,7 +195,6 @@
             this.Controls.Add(this.HeightLabel);
             this.Controls.Add(this.ConfrimSizeLabel);
             this.Controls.Add(this.IconBox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Load_Image_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
