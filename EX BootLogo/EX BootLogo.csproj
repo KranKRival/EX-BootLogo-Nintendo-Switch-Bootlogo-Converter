@@ -113,6 +113,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="exbooticon__J1I_icon.ico" />
+    <None Include="Resources\450px-No_image_available.jpg" />
+    <None Include="Resources\450px-No_image_available.svg.png" />
     <None Include="Resources\EXBootIcon_.png" />
   </ItemGroup>
   <ItemGroup>

@@ -63,6 +63,26 @@ namespace EX_BootLogo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _450px_No_image_available {
+            get {
+                object obj = ResourceManager.GetObject("450px-No_image_available", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _450px_No_image_available_svg {
+            get {
+                object obj = ResourceManager.GetObject("450px-No_image_available.svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap EXBootIcon_ {
             get {
                 object obj = ResourceManager.GetObject("EXBootIcon_", resourceCulture);

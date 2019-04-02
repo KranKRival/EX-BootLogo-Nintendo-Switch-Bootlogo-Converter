@@ -25,13 +25,18 @@ namespace EX_BootLogo
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Orange100, Primary.Orange300, Primary.Orange800, Accent.DeepOrange700, TextShade.BLACK);
         }
        
-        Bitmap Creat_BootLogo(string input)
+        Bitmap Creat_BootLogo(bool rotate, string input)
         {
+            rotate = false;
             Bitmap ImageInput = new Bitmap(input);
             Bitmap ImageOutput = new Bitmap(ImageInput.Width, ImageInput.Height, PixelFormat.Format32bppArgb);
             Graphics ImageHandle = Graphics.FromImage(ImageOutput);
             ImageHandle.DrawImage(ImageInput, new Rectangle(0, 0, ImageOutput.Width, ImageOutput.Height));
             ImageHandle.Dispose();
+            if (rotate)
+            {
+                ImageOutput.RotateFlip(RotateFlipType.Rotate180FlipNone);
+            }
             return ImageOutput;
         }
 
@@ -43,6 +48,8 @@ namespace EX_BootLogo
                 try
                 {
                     Bitmap Image_var = new Bitmap(LoadImageDilaog.FileName);
+                    HeightLabel.Text = "Height: ";
+                    WidthLabel.Text = "Width: ";
                     HeightLabel.Text = HeightLabel.Text + Convert.ToString(Image_var.Height);
                     WidthLabel.Text = WidthLabel.Text + Convert.ToString(Image_var.Width);
                     LoadedImageBox.ImageLocation = LoadImageDilaog.FileName;
@@ -62,9 +69,9 @@ namespace EX_BootLogo
         private void Load_Image_Form_Load(object sender, EventArgs e)
         {
             LoadedImageBox.SizeMode = PictureBoxSizeMode.CenterImage;
-            LoadedImageBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            //LoadedImageBox.SizeMode = PictureBoxSizeMode.StretchImage;
             IconBox.SizeMode = PictureBoxSizeMode.CenterImage;
-            IconBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            //IconBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void SaveBootLogoButton_Click(object sender, EventArgs e)
@@ -73,9 +80,10 @@ namespace EX_BootLogo
             SaveBootLogoDialog.FileName = "bootlogo.bmp";
             if (SaveBootLogoDialog.ShowDialog() == DialogResult.OK)
             {
+                bool rotate = true;
                 try
                 {
-                    Creat_BootLogo(LoadImageDilaog.FileName).Save(SaveBootLogoDialog.FileName, ImageFormat.Bmp);
+                    Creat_BootLogo(rotate, LoadImageDilaog.FileName).Save(SaveBootLogoDialog.FileName, ImageFormat.Bmp);
                     MessageBox.Show("Boot Logo Exported :)", "OK !", MessageBoxButtons.OK);
                     
                 }
